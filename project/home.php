@@ -17,8 +17,8 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#news">Service</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="joinnow2.html">Join now</a></li>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="joinnow.php">Join now</a></li>
         </ul>
       </div>
 </section>
@@ -37,7 +37,7 @@
                           <!-- Search Form  -->
                             <p style="top:500px; left: 40px; position: absolute; max-width:400px; font-size:30px;font-family:Bauhaus 93 ;color:rgb(8, 8, 8)">Become a good caregiver </p>
                             &nbsp;
-                               <button class="btn btn-secondary w-90" style="top:550px; left: 40px; position: absolute; color: rgb(24, 236, 236);"><a href="joinnow2.html">Register</a></button>
+                               <button class="btn btn-secondary w-90" style="top:550px; left: 40px; position: absolute; color: rgb(24, 236, 236);"><a href="joinnow.php">Register</a></button>
                       
                 
               </div>
