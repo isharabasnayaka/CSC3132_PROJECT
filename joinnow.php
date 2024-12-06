@@ -68,7 +68,7 @@
                     <img src="care.webp" alt="Caregiver Icon">
                     <h5>I need a caregiver</h5>
                     <p>Start your free search for care in your area.</p>
-                    <button class="btn btton">Find care</button>
+                    <button class="btn btton"><a href="register.php"> care</a></button>
                 </div>
             </div>
             <!-- Card 2 -->
@@ -77,7 +77,7 @@
                     <img src="job.jpg" alt="Care Job Icon">
                     <h5>I want a care job</h5>
                     <p>Create a profile and search for jobs.</p>
-                    <button class="btn btton">Find jobs</button>
+                    <button class="btn btton"><a href="register.php">Find jobs</a></button>
                 </div>
             </div>
         </div>
