@@ -132,19 +132,19 @@
         <div class="slideshow-container">
           <!-- Slide 1 -->
           <div class="mySlides">
-            <img src="poi.jpg" alt="Register" class="img-fluid" style="width: 100%;">
+            <img src="images/poi.jpg" alt="Register" class="img-fluid" style="width: 100%;">
           </div>
           <!-- Slide 2 -->
           <div class="mySlides">
-            <img src="ggtedf.jpg" alt="Search" class="img-fluid" style="width: 100%;">
+            <img src="images/ggtedf.jpg" alt="Search" class="img-fluid" style="width: 100%;">
           </div>
           <!-- Slide 3 -->
           <div class="mySlides">
-            <img src="hgtry.jpg" alt="Schedule" class="img-fluid" style="width: 100%;">
+            <img src="images/hgtry.jpg" alt="Schedule" class="img-fluid" style="width: 100%;">
           </div>
           <!-- Slide 4 -->
           <div class="mySlides">
-            <img src="a.jpg" alt="Quality Care" class="img-fluid" style="width: 100%;">
+            <img src="images/a.jpg" alt="Quality Care" class="img-fluid" style="width: 100%;">
           </div>
         </div>
         <br>
@@ -163,7 +163,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="register.png" alt="Register" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/register.png" alt="Register" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">1. Register</h4>
@@ -176,7 +176,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="search.png" alt="Search" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/search.png" alt="Search" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">2. Search for Caregivers</h4>
@@ -189,7 +189,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="calender.webp" alt="Schedule" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/calender.webp" alt="Schedule" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">3. Schedule and Book</h4>
@@ -202,7 +202,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="care2.png" alt="Quality Care" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/care2.png" alt="Quality Care" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">4. Receive Quality Care</h4>
