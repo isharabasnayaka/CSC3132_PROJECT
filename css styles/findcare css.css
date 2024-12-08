@@ -1,0 +1,72 @@
+
+body {
+    font-family: 'Bahnschrift Light', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .logo{
+    font-family: 'Niagara Engraved',cursive, sans-serif; 
+    font-size: 50px;
+    font-weight:bolder; 
+    color: hwb(0 4% 95%); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    text-align: center;  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 30px;
+  font-size: 30px ;
+  background-color: white; 
+}
+  .card {
+    border-radius: 12px;
+  }
+  
+  .card-header {
+    background: linear-gradient(135deg, #09f185, #acda9a);
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .card-header h2 {
+    font-weight: bold;
+    font-size: 1.75rem;
+  }
+  
+  .card-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .form-select {
+    border-radius: 8px;
+  }
+  
+  button {
+    background-color: #8bf57d;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #6dfc85;
+  }
+  
