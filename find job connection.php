@@ -1,8 +1,8 @@
 <?php
 // Database connection details
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root"; // Replace with your MySQL username
-$password = ""; // Replace with your MySQL password
+$password = "mariadb"; // Replace with your MySQL password
 $dbname = "Carebond";
 
 // Create connection
