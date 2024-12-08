@@ -1,0 +1,69 @@
+body {
+    background-color: #ececec;
+   
+}
+.logo{
+    font-family: 'Niagara Engraved',cursive, sans-serif; 
+    font-size: 50px;
+    font-weight:bolder; 
+    color: hwb(0 4% 95%); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    text-align: center;  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 30px;
+  font-size: 30px ;
+  background-color: white; 
+}
+.login-container {
+    text-align: justify;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    margin-top: 150px; /* Added margin-top to create space between title bar and login section */
+    margin-left: 500px;
+}
+.btn-google {
+    background-color: #4285F4;
+    color: white;
+}
+.btn-google:hover {
+    background-color: #357ae8;
+}
+.btn-apple {
+    background-color: black;
+    color: white;
+}
+.btn-apple:hover {
+background-color: #333;
+}
+.divider {
+display: flex;
+align-items: center;
+text-align: center;
+}
+.divider::before,
+.divider::after {
+content: '';
+flex: 1;
+border-bottom: 1px solid #dee2e6;
+}
+.divider::before {
+margin-right: 10px;
+}
+.divider::after {
+margin-left: 10px;
+}
+.logo {
+font-size: 1.8rem;
+font-weight: bold;
+}
