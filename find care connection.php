@@ -24,7 +24,7 @@ $qualifications = $_POST['qualifications'];
 $work_duration = $_POST['work_duration'];
 $area = $_POST['area'];
 $hiring_duration = $_POST['hiring_duration'];
-$password = $_POST['confirm_password'];
+$password = $_POST['password'];
 
 // Hash the password for security
 $password_hash = password_hash($password, PASSWORD_BCRYPT);
@@ -46,7 +46,7 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-    echo "<script>alert('Form submitted successfully!');</script>";
+    echo "<script>alert('Form submitted successfully!')window.location.href = 'login.php';</script>";
 } else {
     echo "Error: " . $stmt->error;
 }
