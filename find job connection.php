@@ -63,7 +63,7 @@ $stmt->bind_param(
 
 if ($stmt->execute()) {
     echo "<script>alert('Form submitted successfully!');</script>";
-    echo "<script>window.location.href = 'success_page.html';</script>"; // Redirect to success page
+    echo "<script>window.location.href = 'login.php';</script>"; 
 } else {
     echo "Error: " . $stmt->error;
 }
