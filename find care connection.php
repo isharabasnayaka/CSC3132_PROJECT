@@ -25,9 +25,7 @@ $work_duration = $_POST['work_duration'];
 $area = $_POST['area'];
 $hiring_duration = $_POST['hiring_duration'];
 $password = $_POST['Password'] ?? null;
-if (empty($password)) {
-    die("Error: Password cannot be empty.");
-}
+
 
 
 // Hash the password for security
