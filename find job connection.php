@@ -24,7 +24,7 @@ $work_hours = $_POST['work_hours'];
 $salary = $_POST['salary'];
 $patients = $_POST['patients'];
 $experience = $_POST['experience'];
-$password = $_POST['password'];
+$password = $_POST['Password'];
 
 // Hash the password for security
 $password_hash = password_hash($password, PASSWORD_BCRYPT);
