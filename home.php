@@ -27,7 +27,7 @@
 
 <!-------------------------------------------------------image and search bars------------------------------------------------------->
 <section id="home">
-    <div class="col-md-7" img src="images/home img/b.jpg">
+    <div class="col-md-7 bcimage">
         <h2 class="mb-3 highlight" style="top:150px; left: 40px; position: absolute;font-family:Bahnschrift Condensed ; ">Find a Caregiver</h3> &nbsp;
         <h3 class="mb-3 highlight" style="top:230px; left: 40px; position: absolute;font-family:Bahnschrift Condensed ; ">Connecting families with,quality, local caregivers</h3>
         
