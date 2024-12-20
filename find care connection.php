@@ -29,7 +29,7 @@ $password = $_POST['Password'] ?? null;
 
 
 // Hash the password for security
-$password_hash = password_hash($password, PASSWORD_BCRYPT);
+//$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
 // Insert data into the database
 $sql = "INSERT INTO find_caregiver_requests (
