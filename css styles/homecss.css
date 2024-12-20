@@ -49,10 +49,10 @@
 .search-form .form-control {
     max-width: 150px;
     margin: 0 auto;
-position: left;}
+    position: left;}
 
 .bcimage {
-  background-image:url("images/home img/homeid.png"); 
+  background-image:url("../images/home img/homedis.jpg"); 
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
