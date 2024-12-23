@@ -42,7 +42,7 @@
         </p>
       </div>
       <div class="col-md-6">
-        <img src="serviceimg/qwe.webp" alt="CareBond Team" class="img-fluid rounded">
+        <img src="..images/serviceimg/qwe.webp" alt="CareBond Team" class="img-fluid rounded">
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
     <div class="row g-4">
       <div class="col-md-4">
         <div class="card service">
-          <img src="serviceimg/asde.webp" class="card-img-top" alt="Caregiver Matching">
+          <img src="..images/serviceimg/asde.webp" class="card-img-top" alt="Caregiver Matching">
           <div class="card-body text-center">
             <h5 class="card-title">Caregiver Matching</h5>
             <p class="card-text">Find caregivers tailored to your needs based on location, experience, and budget.</p>
@@ -62,7 +62,7 @@
       </div>
       <div class="col-md-4">
         <div class="card service">
-          <img src="serviceimg/sheduling.webp" class="card-img-top" alt="Scheduling System">
+          <img src="..images/serviceimg/sheduling.webp" class="card-img-top" alt="Scheduling System">
           <div class="card-body text-center">
             <h5 class="card-title">Scheduling System</h5>
             <p class="card-text">Easily book and manage caregiving services through our intuitive scheduling platform.</p>
@@ -71,7 +71,7 @@
       </div>
       <div class="col-md-4">
         <div class="card service">
-          <img src="serviceimg/fle.png" class="card-img-top" alt="Flexible Options">
+          <img src="..images/serviceimg/fle.png" class="card-img-top" alt="Flexible Options">
           <div class="card-body text-center">
             <h5 class="card-title">Flexible Options</h5>
             <p class="card-text">Support for both short-term and long-term caregiving needs in various settings.</p>

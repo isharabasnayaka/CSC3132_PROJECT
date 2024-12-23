@@ -23,7 +23,7 @@
             <!-- Card 1 -->
             <div class="col-md-6" >
                 <div class="card align-items-center" style="background-color:rgb(255, 255, 255) ;">
-                    <img src="images/joinnow img/care.webp" alt="Caregiver Icon">
+                    <img src="images/joinnowimg/care.webp" alt="Caregiver Icon">
                     <h5>I need a caregiver</h5>
                     <p>Start your free search for care in your area.</p>
                     <a href="find care.php" class="btn btn-primary btn-lg">Find care</a> 
@@ -32,7 +32,7 @@
             <!-- Card 2 -->
             <div class="col-md-6">
                 <div class="card align-items-center" style="background-color:rgb(255, 255, 255);">
-                    <img src="images/joinnow img/job.jpg" alt="Care Job Icon">
+                    <img src="images/joinnowimg/job.jpg" alt="Care Job Icon">
                     <h5>I want a care job</h5>
                     <p>Create a profile and search for jobs.</p>
                     <a href="find job.php" class="btn btn-primary btn-lg">Find jobs</a>
