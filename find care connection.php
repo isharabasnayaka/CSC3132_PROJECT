@@ -1,18 +1,3 @@
-<?php
-// Database connection details
-$servername = "127.0.0.1";
-$username = "root"; // Replace with your MySQL username
-$password = "mariadb"; // Replace with your MySQL password
-$dbname = "Carebond";
-
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Collect form data
 $name = $_POST['name'];
 $phone = $_POST['phone'];
@@ -24,9 +9,12 @@ $qualifications = $_POST['qualifications'];
 $work_duration = $_POST['work_duration'];
 $area = $_POST['area'];
 $hiring_duration = $_POST['hiring_duration'];
-$password = $_POST['Password'] ?? null;
+$password = $_POST['Password'] ?? null; // Get password from form
 
-
+// Check if the password is provided and not empty
+if (empty($password)) {
+    die("Password is required.");
+}
 
 // Hash the password for security
 $password_hash = password_hash($password, PASSWORD_BCRYPT);
@@ -48,7 +36,7 @@ $stmt->bind_param(
 );
 
 if ($stmt->execute()) {
-    echo "<script>alert('Form submitted successfully!')window.location.href = 'login.php';</script>";
+    echo "<script>alert('Form submitted successfully!'); window.location.href = 'login.php';</script>";
 } else {
     echo "Error: " . $stmt->error;
 }
@@ -56,4 +44,3 @@ if ($stmt->execute()) {
 // Close the connection
 $stmt->close();
 $conn->close();
-?>
