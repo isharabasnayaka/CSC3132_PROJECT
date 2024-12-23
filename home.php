@@ -127,19 +127,19 @@
         <div class="slideshow-container">
           <!-- Slide 1 -->
           <div class="mySlides">
-            <img src="images/home img/a.jpg" alt="Register" class="img-fluid" style="width: 100%;">
+            <img src="images/homeimg/a.jpg" alt="Register" class="img-fluid" style="width: 100%;">
           </div>
           <!-- Slide 2 -->
           <div class="mySlides">
-            <img src="images/home img/b.jpg" alt="Search" class="img-fluid" style="width: 100%;">
+            <img src="images/homeimg/b.jpg" alt="Search" class="img-fluid" style="width: 100%;">
           </div>
           <!-- Slide 3 -->
           <div class="mySlides">
-            <img src="images/home img/c.webp" alt="Schedule" class="img-fluid" style="width: 100%;">
+            <img src="images/homeimg/c.webp" alt="Schedule" class="img-fluid" style="width: 100%;">
           </div>
           <!-- Slide 4 -->
           <div class="mySlides">
-            <img src="images/home img/d.jpg" alt="Quality Care" class="img-fluid" style="width: 100%;">
+            <img src="images/homeimg/d.jpg" alt="Quality Care" class="img-fluid" style="width: 100%;">
           </div>
         </div>
         <br>
