@@ -12,6 +12,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+// Debug: Check if password is in the form data
+if (!isset($_POST['Password'])) {
+    die("Password field is not set in the form.");
+}
+
 // Collect form data
 $name = $_POST['name'];
 $phone = $_POST['phone'];
@@ -25,9 +31,9 @@ $area = $_POST['area'];
 $hiring_duration = $_POST['hiring_duration'];
 $password = $_POST['Password'] ?? null; // Get password from form
 
-// Check if the password is provided and not empty
+// Debug: Check the password value
 if (empty($password)) {
-    die("Password is required.");
+    die("Password is required. Password value: '$password'");
 }
 
 // Hash the password for security
@@ -58,3 +64,4 @@ if ($stmt->execute()) {
 // Close the connection
 $stmt->close();
 $conn->close();
+?>
