@@ -158,7 +158,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="images/home img/register.png" alt="Register" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/homeimg/register.png" alt="Register" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">1. Register</h4>
@@ -171,7 +171,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="/images/home img/search.png" alt="Search" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="/images/homeimg/search.png" alt="Search" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">2. Search for Caregivers</h4>
@@ -184,7 +184,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="images/home img/calender.webp" alt="Schedule" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/homeimg/calender.webp" alt="Schedule" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">3. Schedule and Book</h4>
@@ -197,7 +197,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="images/home img/care2.png" alt="Quality Care" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/homeimg/care2.png" alt="Quality Care" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">4. Receive Quality Care</h4>
