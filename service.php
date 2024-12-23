@@ -16,8 +16,8 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#news">Service</a></li>
-          <li><a href="joinnow.html">Join now</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="joinnow.php">Join now</a></li>
+          <li><a href="login.php">Login</a></li>
           
         </ul>
     </div>
