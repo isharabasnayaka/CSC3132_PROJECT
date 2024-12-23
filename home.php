@@ -171,7 +171,7 @@
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
-                        <img src="/images/homeimg/search.png" alt="Search" class="img-fluid" style="width: 50px; height: 50px;">
+                        <img src="images/homeimg/search.png" alt="Search" class="img-fluid" style="width: 50px; height: 50px;">
                     </div>
                     <div>
                         <h4 class="mb-1">2. Search for Caregivers</h4>
