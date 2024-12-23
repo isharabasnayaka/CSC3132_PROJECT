@@ -1,0 +1,77 @@
+
+.logo{
+    font-family: 'Niagara Engraved',cursive, sans-serif; 
+    font-size: 50px;
+    font-weight:bolder; 
+    color: hwb(0 4% 95%); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    text-align: center;  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 30px;
+  font-size: 30px ;
+  background-color: white; 
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+  }
+  .navbar li {
+    margin-left: 8px; 
+  }
+  .navbar li a {
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #000; 
+    font-family: "Bodoni MT Condensed";
+    transition: color 0.3s ease, background-color 0.3s ease; 
+  }
+  .navbar li a:hover {
+    color: #5a5e5c; 
+  }
+  
+  .highlight {
+    background-color: #043a69; 
+    padding: 10px; 
+    border-radius: 5px; 
+    display: inline-block; 
+  }
+
+.title {
+      background: url('../serviceimg/njh.png') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      height: 450px;
+    }
+    .service {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .about, .testimonials {
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+    .faq {
+      padding: 40px 20px;
+    }
+    .Action {
+      background-color: #f8f9fa;
+      padding: 40px;
+      text-align: center;
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
