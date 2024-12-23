@@ -14,8 +14,8 @@
     <div class="navbar">
         <p class="logo" style="margin-top: 0px;">Care bond....</p>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#news">Service</a></li>
+          <li><a href="home.php">Home</a></li>
+          <li><a href="service.php">Service</a></li>
           <li><a href="joinnow.php">Join now</a></li>
           <li><a href="login.php">Login</a></li>
           
