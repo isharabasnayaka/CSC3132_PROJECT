@@ -88,13 +88,14 @@
               <input type="text" id="hiring_duration" name="hiring_duration" class="form-control" placeholder="E.g., 1 month, 6 months" required>
             </div>
 
-            <!-- Password -->
+           <!-- Password -->
 <div class="col-md-6">
   <label for="password" class="form-label">Password</label>
   <input 
     type="password" 
     class="form-control" 
     id="password" 
+    name="password"  <!-- Add this name attribute -->
     style="max-width: 360px;" 
     placeholder="Enter your password" 
     required
@@ -108,6 +109,7 @@
     type="password" 
     class="form-control" 
     id="confirm_password" 
+    name="confirm_password"  <!-- Add this name attribute -->
     style="max-width: 360px;" 
     placeholder="Confirm your password" 
     required
@@ -115,6 +117,7 @@
   <!-- Error Message -->
   <small id="error-message" class="text-danger" style="display: none;">Passwords do not match</small>
 </div>
+
 
 <script>
   const password = document.getElementById('password');
