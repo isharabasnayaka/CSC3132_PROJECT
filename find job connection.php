@@ -1,74 +1,56 @@
 <?php
-// Database connection details
-$servername = "127.0.0.1";
-$username = "root"; // Replace with your MySQL username
-$password = "mariadb"; // Replace with your MySQL password
-$dbname = "Carebond";
+require_once 'dbconf.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+function AddData($connect, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $patients, $experience, $profile_photo_path, $password_hash) {
+    try {
+        $stmt = $connect->prepare("INSERT INTO find_job_applications (name, phone, email, job_type, qualifications, location, work_hours, salary, patients, experience, profile_photo_path, password_hash) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssssssss", $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $patients, $experience, $profile_photo_path, $password_hash);
+        if ($stmt->execute()) {
+            header("Location: login.php"); 
+            exit();
+        } else {
+            die("Error: " . $stmt->error);
+        }
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
 }
 
-// Collect form data
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$email = $_POST['mail'];
-$job_type = $_POST['job_type'];
-$qualifications = $_POST['qualifications'];
-$location = $_POST['location'];
-$work_hours = $_POST['work_hours'];
-$salary = $_POST['salary'];
-$patients = $_POST['patients'];
-$experience = $_POST['experience'];
-$password = $_POST['Password'];
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['mail'];
+    $job_type = $_POST['job_type'];
+    $qualifications = $_POST['qualifications'];
+    $location = $_POST['location'];
+    $work_hours = $_POST['work_hours'];
+    $salary = $_POST['salary'];
+    $patients = $_POST['patients'];
+    $experience = $_POST['experience'];
 
-// Hash the password for security
-$password_hash = password_hash($password, PASSWORD_BCRYPT);
+    if (isset($_POST['password']) && !empty($_POST['password'])) {
+        $password = $_POST['password'];
+        $password_hash = password_hash($password, PASSWORD_DEFAULT); 
+    } else {
+        echo "Password is required!";
+        exit;
+    }
 
-// Handle file upload
-$target_dir = "uploads/";
-if (!is_dir($target_dir)) {
-    mkdir($target_dir, 0777, true);
+    $profile_photo_path = ''; 
+    if (isset($_FILES['profile_photo']) && $_FILES['profile_photo']['error'] == 0) {
+        $target_dir = "uploads/"; 
+        $profile_photo_path = $target_dir . basename($_FILES['profile_photo']['name']);
+        move_uploaded_file($_FILES['profile_photo']['tmp_name'], $profile_photo_path);
+    }
+
+    // Validate salary input
+    if (!is_numeric($salary) || strlen($salary) > 10) {
+        die("Invalid salary value. Ensure it's a valid number and doesn't exceed the length.");
+    }
+
+    // Call the AddData function to insert the data into the database
+    AddData($connect, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $patients, $experience, $profile_photo_path, $password_hash);
 }
-$profile_photo = $_FILES['profile_photo']['name'];
-$target_file = $target_dir . basename($profile_photo);
-
-// Move uploaded file to the server
-if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $target_file)) {
-    $profile_photo_path = $target_file;
-} else {
-    die("Error uploading profile photo.");
-}
-
-// Insert data into the database
-$sql = "INSERT INTO find_job_applications(
-            name, phone, email, job_type, qualifications, 
-            location, work_hours, salary, patients, experience, 
-            profile_photo_path, password_hash
-        ) VALUES (
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-        )";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param(
-    "ssssssssssss",
-    $name, $phone, $email, $job_type, $qualifications,
-    $location, $work_hours, $salary, $patients, $experience,
-    $profile_photo_path, $password_hash
-);
-
-if ($stmt->execute()) {
-    echo "<script>alert('Form submitted successfully!');</script>";
-    echo "<script>window.location.href = 'login.php';</script>"; 
-} else {
-    echo "Error: " . $stmt->error;
-}
-
-// Close the connection
-$stmt->close();
-$conn->close();
 ?>

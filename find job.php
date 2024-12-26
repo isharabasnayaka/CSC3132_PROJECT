@@ -92,8 +92,9 @@
           <!-- Password -->
           <div class="col-md-6">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" style="max-width: 360px;" placeholder="Enter your password" required>
-          </div>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+  
+        </div>
 
          <!-- Confirm Password -->
         <div class="col-md-6">
@@ -108,14 +109,13 @@
   const confirmPassword = document.getElementById('confirm_password');
   const errorMessage = document.getElementById('error-message');
 
-  // Validate passwords on input
   confirmPassword.addEventListener('input', () => {
     if (password.value !== confirmPassword.value) {
-      errorMessage.style.display = 'block'; // Show error message
-      confirmPassword.setCustomValidity('Passwords do not match'); // Set validation error
+      errorMessage.style.display = 'block'; 
+      confirmPassword.setCustomValidity('Passwords do not match'); 
     } else {
-      errorMessage.style.display = 'none'; // Hide error message
-      confirmPassword.setCustomValidity(''); // Clear validation error
+      errorMessage.style.display = 'none'; 
+      confirmPassword.setCustomValidity(''); 
     }
   });
 </script>
