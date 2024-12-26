@@ -94,11 +94,10 @@
   <input 
     type="password" 
     id="password" 
-    name="password" <!-- This is critical for PHP to receive the input -->
+    name="password"
     class="form-control" 
     placeholder="Enter your password" 
-    required
-  >
+    required>
 </div>
 
 <!-- Confirm Password -->
@@ -107,11 +106,10 @@
   <input 
     type="password" 
     id="confirm_password" 
-    name="confirm_password" <!-- This must match the name expected in PHP -->
+    name="confirm_password" 
     class="form-control" 
     placeholder="Confirm your password" 
-    required
-  >
+    required>
 </div>
 
 
