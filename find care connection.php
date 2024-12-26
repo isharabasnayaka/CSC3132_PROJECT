@@ -9,9 +9,9 @@ function AddData($connect, $name, $phone, $email, $patient_details, $location, $
     
     if (mysqli_query($connect, $sql)) {
         echo "Record created successfully";
-       
-        header("Location:login.php");
-        exit(); 
+        // Redirect to the login page after successful form submission
+        header("Location: login_page.php"); // Ensure this is the correct login page URL
+        exit(); // Ensure the script stops after the redirection
     } else {
         die("Error: " . mysqli_error($connect));
     }
