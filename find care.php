@@ -88,15 +88,14 @@
               <input type="text" id="hiring_duration" name="hiring_duration" class="form-control" placeholder="E.g., 1 month, 6 months" required>
             </div>
 
-           <!-- Password -->
+          <!-- Password -->
 <div class="col-md-6">
   <label for="password" class="form-label">Password</label>
   <input 
     type="password" 
-    class="form-control" 
     id="password" 
-    name="password"  <!-- Add this name attribute -->
-    style="max-width: 360px;" 
+    name="password" <!-- This is critical for PHP to receive the input -->
+    class="form-control" 
     placeholder="Enter your password" 
     required
   >
@@ -107,15 +106,12 @@
   <label for="confirm_password" class="form-label">Confirm Password</label>
   <input 
     type="password" 
-    class="form-control" 
     id="confirm_password" 
-    name="confirm_password"  <!-- Add this name attribute -->
-    style="max-width: 360px;" 
+    name="confirm_password" <!-- This must match the name expected in PHP -->
+    class="form-control" 
     placeholder="Confirm your password" 
     required
   >
-  <!-- Error Message -->
-  <small id="error-message" class="text-danger" style="display: none;">Passwords do not match</small>
 </div>
 
 
