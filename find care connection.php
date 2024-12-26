@@ -1,67 +1,49 @@
 <?php
-// Database connection details
-$servername = "127.0.0.1";
-$username = "root"; // Replace with your MySQL username
-$password = "mariadb"; // Replace with your MySQL password
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
 $dbname = "Carebond";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Debug: Check if password is in the form data
-if (!isset($_POST['Password'])) {
-    die("Password field is not set in the form.");
-}
 
-// Collect form data
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $email = $_POST['mail'];
-$patient_details = $_POST['details'];
+$details = $_POST['details'];
 $location = $_POST['location'];
 $nurse_gender = $_POST['nurse_gender'];
 $qualifications = $_POST['qualifications'];
 $work_duration = $_POST['work_duration'];
 $area = $_POST['area'];
 $hiring_duration = $_POST['hiring_duration'];
-$password = $_POST['Password'] ?? null; // Get password from form
+$password = $_POST['password']; 
 
-// Debug: Check the password value
-if (empty($password)) {
-    die("Password is required. Password value: '$password'");
+
+if ($_POST['password'] !== $_POST['confirm_password']) {
+    die("Passwords do not match.");
 }
 
-// Hash the password for security
-$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-// Insert data into the database
-$sql = "INSERT INTO find_caregiver_requests (
-            name, phone, email, patient_details, location, nurse_gender, 
-            qualifications, work_duration, area, hiring_duration, password_hash
-        ) VALUES (
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-        )";
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param(
-    "sssssssssss", 
-    $name, $phone, $email, $patient_details, $location, 
-    $nurse_gender, $qualifications, $work_duration, $area, 
-    $hiring_duration, $password_hash
-);
+
+$stmt = $conn->prepare("INSERT INTO  find_caregiver_requests (name, phone, email, patient_details, location, nurse_gender, qualifications, work_duration, area, hiring_duration, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssss", $name, $phone, $email, $details, $location, $nurse_gender, $qualifications, $work_duration, $area, $hiring_duration, $hashed_password);
+
 
 if ($stmt->execute()) {
-    echo "<script>alert('Form submitted successfully!'); window.location.href = 'login.php';</script>";
+    echo "New record created successfully";
 } else {
     echo "Error: " . $stmt->error;
 }
 
-// Close the connection
 $stmt->close();
 $conn->close();
 ?>
