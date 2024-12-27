@@ -1,0 +1,64 @@
+.logo{
+    font-family: 'Niagara Engraved',cursive, sans-serif; 
+    font-size: 50px;
+    font-weight:bolder; 
+    color: hwb(0 4% 95%); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    text-align: center;  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 30px;
+  font-size: 30px ;
+  background-color: white; 
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+}
+.navbar li {
+  margin-left: 8px; 
+}
+.navbar li a {
+  display: block;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #000; 
+  font-family: "Bodoni MT Condensed";
+  transition: color 0.3s ease, background-color 0.3s ease; 
+}
+.navbar li a:hover {
+  color: #5a5e5c; 
+}
+.profile-header {
+    background: linear-gradient(to right, #e5d4f8, #bcbec0);
+    color: rgb(85, 83, 83);
+    padding: 20px 0;
+  }
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+  }
+  .hired-btn {
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  .hired {
+    background-color: #28a745;
+    color: white;
+  }
+  .not-hired {
+    background-color: #dc3545;
+    color: white;
+  }
