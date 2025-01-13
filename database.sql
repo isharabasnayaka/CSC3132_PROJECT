@@ -18,3 +18,20 @@ CREATE TABLE IF NOT EXISTS find_job_applications (
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+-- Create the database
+CREATE DATABASE caregiver_system;
+
+-- Use the database
+USE caregiver_system;
+
+-- Create the users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    password VARCHAR(255) NOT NULL, -- Store hashed passwords for security
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
