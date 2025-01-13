@@ -10,16 +10,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare the SQL query to insert data
     $sql = "INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $name, $email, $phone, $password);
+    $stmt = mysqli_prepare($connect, $sql);
 
-    if ($stmt->execute()) {
-        echo "Signup successful! Welcome, " . htmlspecialchars($name) . ".";
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $phone, $password);
+
+        if (mysqli_stmt_execute($stmt)) {
+            // Redirect to login page after successful registration
+            header("Location: login.php");
+            exit(); // Make sure no further code is executed after the redirect
+        } else {
+            // Handle query execution failure
+            echo "Error executing query: " . mysqli_stmt_error($stmt);
+        }
     } else {
-        echo "Error: " . $stmt->error;
+        // Handle failed statement preparation
+        echo "Error preparing statement: " . mysqli_error($conn);
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>

@@ -8,7 +8,7 @@
         $mail = mysqli_real_escape_string($connect,$_POST['mail']);
         $pswd = mysqli_real_escape_string($connect,$_POST['pswd']);
 
-        $sql = "SELECT * FROM find_job_applications WHERE email='{$mail}'";
+        $sql = "SELECT * FROM user WHERE email='{$mail}'";
         $result_set = mysqli_query($connect, $sql);
 
         if($result_set && mysqli_num_rows($result_set) == 1){
@@ -17,7 +17,7 @@
 
             if(password_verify($pswd,$hashedPassword)){
                 $_SESSION['user_id'] = $row['id'];
-                header("Location: profile.php");
+                header("Location: joinnow.php");
             }
         }
     }
