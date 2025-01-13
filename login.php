@@ -1,3 +1,27 @@
+<?php
+    require_once 'dbconf.php';
+?>
+<?php
+    session_start();
+
+    if(isset($_POST['login'])){
+        $mail = mysqli_real_escape_string($connect,$_POST['mail']);
+        $pswd = mysqli_real_escape_string($connect,$_POST['pswd']);
+
+        $sql = "SELECT * FROM find_job_applications WHERE email='{$mail}'";
+        $result_set = mysqli_query($connect, $sql);
+
+        if($result_set && mysqli_num_rows($result_set) == 1){
+            $row = mysqli_fetch_assoc($result_set);
+            $hashedPassword = $row['password_hash'];
+
+            if(password_verify($pswd,$hashedPassword)){
+                $_SESSION['user_id'] = $row['id'];
+                header("Location: profile.php");
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +44,14 @@
 <section >
     <div class="login-container">
         <h2 class="text-center mb-4">Log in</h2>
-        <form>
+        <form method="post" action="login.php">
             <div class="mb-5">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" style="max-width: 360px;" placeholder="Enter your email" required>
+                <input type="email" name="mail" class="form-control" id="email" style="max-width: 360px;" placeholder="Enter your email" required>
                 <label for="password" class="form-label">Password</label>
-                <input type="email" class="form-control" id="password" style="max-width: 360px;" placeholder="Enter your password" required>
+                <input type="password" name="pswd" class="form-control" id="password" style="max-width: 360px;" placeholder="Enter your password" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100 mb-4">Continue</button>
+            <button type="submit" name="login" class="btn btn-primary w-100 mb-4">Continue</button>
             <p class="text-muted text-center" style="font-size: 12px;">
                 This site is protected by reCAPTCHA and the Google
                 <a href="#" class="text-decoration-none">Privacy Policy</a> and

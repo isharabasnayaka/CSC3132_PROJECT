@@ -1,3 +1,7 @@
+<?php
+    require_once 'dbconf.php';
+    session_start();
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +26,20 @@
         </div>
     </section>
 
+
+  <?php
+
+    $finder = $_SESSION['user_id'];
+    $sql = "SELECT * FROM find_job_applications WHERE id=$finder";
+    $result = mysqli_query($connect,$sql);
+
+    while($row = mysqli_fetch_assoc($result)){
+  ?>
   <div class="container my-4">
     <!-- Profile Header -->
     <div class="profile-header text-center">
-      <img src="https://via.placeholder.com/150" alt="Caregiver Photo" class="profile-img">
-      <h2 class="mt-3">Jane Doe</h2>
+      <img src="<?php echo $row['profile_photo_path']; ?>" alt="Caregiver Photo" class="profile-img">
+      <h2 class="mt-3"><?php $row['name']; } ?></h2>
       <p>Experience nd were live</p>
       <button id="hiredButton" class="hired-btn hired" onclick="toggleHiredStatus()">Hired</button>
     </div>
