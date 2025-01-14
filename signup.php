@@ -23,32 +23,29 @@
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
             </div>
             <div class="form-group">
-        <label for="password" >Password</label>
-        <input type="password"  id="confirm_password"  placeholder="Confirm your password" required>
-</div>
-             <!-- Confirm Password -->
-             <div class="form-group">
-        <label for="confirm_password" >Confirm Password</label>
-        <input type="password"  id="confirm_password"  placeholder="Confirm your password" required>
-         <!-- Error Message -->
-        <small id="error-message" class="text-danger" style="display: none;">Passwords do not match</small>
-        </div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+                <small id="error-message" class="text-danger" style="display: none;">Passwords do not match</small>
+            </div>
+            <script>
+                const password = document.getElementById('password');
+                const confirmPassword = document.getElementById('confirm_password');
+                const errorMessage = document.getElementById('error-message');
 
-<script>
-  const password = document.getElementById('password');
-  const confirmPassword = document.getElementById('confirm_password');
-  const errorMessage = document.getElementById('error-message');
-
-  confirmPassword.addEventListener('input', () => {
-    if (password.value !== confirmPassword.value) {
-      errorMessage.style.display = 'block'; 
-      confirmPassword.setCustomValidity('Passwords do not match'); 
-    } else {
-      errorMessage.style.display = 'none'; 
-      confirmPassword.setCustomValidity(''); 
-    }
-  });
-</script>
+                confirmPassword.addEventListener('input', () => {
+                    if (password.value !== confirmPassword.value) {
+                        errorMessage.style.display = 'block';
+                        confirmPassword.setCustomValidity('Passwords do not match');
+                    } else {
+                        errorMessage.style.display = 'none';
+                        confirmPassword.setCustomValidity('');
+                    }
+                });
+            </script>
             <div class="form-group">
                 <button type="submit">Sign Up</button>
             </div>
