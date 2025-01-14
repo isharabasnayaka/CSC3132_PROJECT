@@ -26,7 +26,7 @@
                     <img src="images/joinnowimg/care.webp" alt="Caregiver Icon">
                     <h5>I need a caregiver</h5>
                     <p>Start your free search for care in your area.</p>
-                    <a href="find care.php" class="btn btn-primary btn-lg">Find care</a> 
+                    <a href="search.php" class="btn btn-primary btn-lg">Find care</a> 
                 </div>
             </div>
             <!-- Card 2 -->

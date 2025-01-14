@@ -1,13 +1,13 @@
 <?php
 require_once 'dbconf.php';
 
-function AddData($connect, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $patients, $experience, $profile_photo_path, $password_hash) {
+function AddData($connect, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $gender, $experience, $profile_photo_path) {
     try {
-        $stmt = $connect->prepare("INSERT INTO find_job_applications (name, phone, email, job_type, qualifications, location, work_hours, salary, patients, experience, profile_photo_path, password_hash) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssssss", $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $patients, $experience, $profile_photo_path, $password_hash);
+        $stmt = $connect->prepare("INSERT INTO find_job_applications (name, phone, email, job_type, qualifications, location, work_hours, salary, gender, experience, profile_photo_path) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssssss", $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $gender, $experience, $profile_photo_path);
         if ($stmt->execute()) {
-            header("Location: login.php"); 
+            header("Location: profile.php"); 
             exit();
         } else {
             die("Error: " . $stmt->error);
@@ -27,22 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $location = $_POST['location'];
     $work_hours = $_POST['work_hours'];
     $salary = $_POST['salary'];
-    $patients = $_POST['patients'];
+    $gender = $_POST['gender'];
     $experience = $_POST['experience'];
-
-    if (isset($_POST['password']) && !empty($_POST['password'])) {
-        $password = $_POST['password'];
-        $password_hash = password_hash($password, PASSWORD_DEFAULT); 
-    } else {
-        echo "Password is required!";
-        exit;
-    }
 
     $profile_photo_path = ''; 
     if (isset($_FILES['profile_photo']) && $_FILES['profile_photo']['error'] == 0) {
         $target_dir = "uploads/"; 
         $profile_photo_path = $target_dir . basename($_FILES['profile_photo']['name']);
-        move_uploaded_file($_FILES['profile_photo']['tmp_name'], $profile_photo_path);
+        if (!move_uploaded_file($_FILES['profile_photo']['tmp_name'], $profile_photo_path)) {
+            die("Error uploading profile photo.");
+        }
     }
 
     // Validate salary input
@@ -51,6 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     // Call the AddData function to insert the data into the database
-    AddData($connect, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $patients, $experience, $profile_photo_path, $password_hash);
+    AddData($connect, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $gender, $experience, $profile_photo_path);
 }
 ?>
