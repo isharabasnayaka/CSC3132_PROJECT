@@ -1,7 +1,8 @@
 <?php
-    require_once 'dbconf.php';
-    session_start();
-  ?>
+require_once 'dbconf.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,53 +10,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caregiver Profile</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="profilecss.css">
+  <link rel="stylesheet" href="cssstyles/profilecss.css">
 </head>
 <body>
-    <section>
-        <div class="navbar">
-            <p class="logo" style="margin-top: 0px;">Care bond....</p>
-            <ul>
-              <li><a href="index.php">Home</a></li>
-              <li><a href="service.php">Service</a></li>
-              <li><a href="joinnow.php">Join now</a></li>
-              <li><a href="login.php">Login</a></li>
-              <li><a href="login.php">Log Out</a></li>
-              
-            </ul>
-        </div>
-    </section>
-
+  <section>
+    <div class="navbar">
+      <p class="logo" style="margin-top: 0px;">Care bond....</p>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="service.php">Service</a></li>
+        <li><a href="joinnow.php">Join now</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="login.php">Log Out</a></li>
+      </ul>
+    </div>
+  </section>
 
   <?php
+    if (isset($_SESSION['user_id'])) {
+      $finder = $_SESSION['user_id'];
+      $sql = "SELECT * FROM find_job WHERE user_id=$finder";  // Use user_id instead of id
+      $result = mysqli_query($connect, $sql);
 
-    $finder = $_SESSION['user_id'];
-    $sql = "SELECT * FROM find_job_applications WHERE id=$finder";
-    $result = mysqli_query($connect,$sql);
-
-    while($row = mysqli_fetch_assoc($result)){
+      if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
   ?>
   <div class="container my-4">
     <!-- Profile Header -->
     <div class="profile-header text-center">
-      <img src="<?php echo $row['profile_photo_path']; ?>" alt="Caregiver Photo" class="profile-img">
-      <h2 class="mt-3"><?php $row['name']; } ?></h2>
-      <p>Experience nd were live</p>
+      <img src="<?php echo htmlspecialchars($row['profile_photo_path']); ?>" alt="Caregiver Photo" class="profile-img">
+      <h2 class="mt-3"><?php echo htmlspecialchars($row['name']); ?></h2>
+      <p>Experience: <?php echo htmlspecialchars($row['experience']); ?> | Location: <?php echo htmlspecialchars($row['location']); ?></p>
       <button id="hiredButton" class="hired-btn hired" onclick="toggleHiredStatus()">Hired</button>
     </div>
-
-    <!-- Edit Profile Option -->
-    <div class="text-end mt-3">
-      <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-        Edit Details
-      </button>
-    </div>
-
     <!-- Profile Details -->
     <div class="row my-5">
       <div class="col-md-4">
         <h4>About Me</h4>
-        <p id="about-text"></p>
+        <p id="about-text"><?php echo htmlspecialchars($row['qualifications']); ?></p>
         <button class="btn btn-outline-secondary btn-sm mt-2" onclick="editAbout()">
           Edit About Me
         </button>
@@ -70,54 +62,24 @@
         </ul>
       </div>
       <div class="col-md-4">
-        <h4>contact</h4>
+        <h4>Contact</h4>
         <ul class="list-unstyled">
-          <li><strong>Mail:</strong> 9 AM - 6 PM</li>
-          <li><strong>number:</strong> 10 AM - 4 PM</li>
-          <li><strong>:</strong> Available upon request</li>
+          <li><strong>Email:</strong> <?php echo htmlspecialchars($row['email']); ?></li>
+          <li><strong>Phone:</strong> <?php echo htmlspecialchars($row['phone']); ?></li>
+          <li><strong>Availability:</strong> <?php echo htmlspecialchars($row['work_hours']); ?></li>
         </ul>
       </div>
     </div>
 
-    <!-- Reviews Section -->
-    <div class="my-5">
-      <h4>Reviews</h4>
-      <div class="card mb-3">
-        <div class="card-body">
-          <p class="review-stars">★★★★★</p>
-          <p>"Jane has been a wonderful caregiver for my mother. She’s attentive, kind, and highly professional."</p>
-          <small>- John Smith</small>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="card-body">
-          <p class="review-stars">★★★★☆</p>
-          <p>"Reliable and compassionate service. Highly recommend Jane for elderly care needs."</p>
-          <small>- Mary Johnson</small>
-        </div>
-      </div>
-
-      <!-- Customer Feedback Form -->
-      <h5 class="mt-4">Leave Your Feedback</h5>
-      <form>
-        <div class="mb-3">
-          <label for="stars" class="form-label">Rating</label>
-          <select id="stars" class="form-select">
-            <option value="5">★★★★★</option>
-            <option value="4">★★★★☆</option>
-            <option value="3">★★★☆☆</option>
-            <option value="2">★★☆☆☆</option>
-            <option value="1">★☆☆☆☆</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="feedback" class="form-label">Your Feedback</label>
-          <textarea id="feedback" class="form-control" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Feedback</button>
-      </form>
-    </div>
   </div>
+  <?php
+      } else {
+        echo "<p>No profile found. Please check your session or profile data.</p>";
+      }
+    } else {
+      echo "<p>You must be logged in to view this page.</p>";
+    }
+  ?>
 
   <script>
     function toggleHiredStatus() {
@@ -142,32 +104,27 @@
     }
   </script>
 
-  <!------------------------------fotter------------------------->
-&nbsp;
-
-<footer class="bg-dark text-white py-5" id="contact">
-  <div class="container">
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5" id="contact">
+    <div class="container">
       <div class="row g-4">
-          <div class="col-md-6">
-              <h5>About CareBond</h5>
-              <p>CareBond is dedicated to connecting families with compassionate and experienced caregivers. Our mission is to provide quality care and support to the elderly and those in need.</p>
-          </div>
-          <div class="col-md-2">
-
-          </div>
-          <div class="col-md-3">
-              <h5>Contact Us</h5>
-              <ul class="list-unstyled">
-                  <li><i class="fas fa-phone me-2"></i>011-2544698</li>
-                  <li><i class="fas fa-envelope me-2"></i>info@carebond.com</li>
-              </ul>
-          </div>
+        <div class="col-md-6">
+          <h5>About CareBond</h5>
+          <p>CareBond is dedicated to connecting families with compassionate and experienced caregivers. Our mission is to provide quality care and support to the elderly and those in need.</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-phone me-2"></i>011-2544698</li>
+            <li><i class="fas fa-envelope me-2"></i>info@carebond.com</li>
+          </ul>
+        </div>
       </div>
       <div class="text-center mt-4">
-          <p class="mb-0">&copy; 2023 CareBond. All rights reserved.</p>
+        <p class="mb-0">&copy; 2023 CareBond. All rights reserved.</p>
       </div>
-  </div>
-</footer>  
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

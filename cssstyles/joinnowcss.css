@@ -1,21 +1,50 @@
-.logo{
-    font-family: 'Niagara Engraved',cursive, sans-serif; 
-    font-size: 50px;
-    font-weight:bolder; 
-    color: hwb(0 4% 95%); 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    text-align: center;  
+.logo {
+  font-family: 'Niagara Engraved', cursive, sans-serif;
+  font-size: 50px;
+  font-weight: bolder;
+  color: hwb(0 4% 95%);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 30px;
-  font-size: 30px ;
-  background-color: white; 
+  font-size: 30px;
+  background-color: white;
 }
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar li {
+  margin-left: 16px; /* Increased for better spacing */
+}
+
+.navbar li a {
+  display: block;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Bodoni MT Condensed";
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+  color: #5a5e5c;
+  background-color: #f0f0f0; /* Added a background color on hover */
+}
+
+
 body {
   background-color: white;
   

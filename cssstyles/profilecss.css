@@ -1,20 +1,19 @@
 .logo{
-    font-family: 'Niagara Engraved',cursive, sans-serif; 
-    font-size: 50px;
-    font-weight:bolder; 
-    color: hwb(0 4% 95%); 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    text-align: center;  
+  font-family: 'Niagara Engraved',cursive, sans-serif; 
+  font-size: 50px;
+  font-weight:bolder; 
+  color: hwb(0 4% 95%); 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+  text-align: center;  
 }
-
 .navbar {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 10px 30px;
-  font-size: 30px ;
-  background-color: white; 
+display: flex;
+justify-content: space-between; 
+align-items: center; 
+padding: 10px 30px;
+font-size: 30px ;
+background-color: white; 
 }
 .navbar ul {
   list-style-type: none;

@@ -2,52 +2,41 @@
 require_once 'dbconf.php';
 
 function AddData($connect, $user_id, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $gender, $experience, $profile_photo_path) {
-    try {
-        // Prepare the SQL statement
-        $stmt = $connect->prepare("INSERT INTO find_job (user_id, name, phone, email, job_type, qualifications, location, work_hours, salary, gender, experience, profile_photo_path) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // Prepare the SQL query
+    $sql = "INSERT INTO find_job (user_id, name, phone, email, job_type, qualifications, location, work_hours, salary, gender, experience, profile_photo_path) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        // Bind parameters - ensuring each data type matches the SQL table
-        $stmt->bind_param(
-            "issssssssss", 
-            $user_id,  // user_id is an integer
-            $name,     // name is a string
-            $phone,    // phone is a string
-            $email,    // email is a string
-            $job_type, // job_type is a string
-            $qualifications, // qualifications is a string
-            $location, // location is a string
-            $work_hours, // work_hours is a string
-            $salary,   // salary is a string (could be numeric, but we're treating it as string)
-            $gender,   // gender is a string
-            $experience, // experience is a string
-            $profile_photo_path // profile_photo_path is a string
-        );
-        
-        // Execute the statement and check for errors
+    // Check if the statement was prepared successfully
+    if ($stmt = $connect->prepare($sql)) {
+        // Bind parameters manually: (i = integer, s = string)
+        $stmt->bind_param("isssssssssss", $user_id, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $gender, $experience, $profile_photo_path);
+
+        // Execute the query
         if ($stmt->execute()) {
             header("Location: profile.php"); 
-            exit(); // Ensure no further code is executed
+            exit();
         } else {
             die("Error: " . $stmt->error);
         }
 
-    } catch (Exception $e) {
-        die($e->getMessage());
+        // Close the prepared statement
+        $stmt->close();
+    } else {
+        die("Error preparing the SQL statement.");
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // Assuming user is logged in and user_id is stored in session
+    // Assuming user_id is available in session
     session_start();
     if (!isset($_SESSION['user_id'])) {
         die("You must be logged in to apply for a job.");
     }
-    
-    // Get user_id from the session
+
+    // Get user_id from session
     $user_id = $_SESSION['user_id'];
 
-    // Retrieve form data
+    // Get form data
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['mail'];
@@ -59,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $gender = $_POST['gender'];
     $experience = $_POST['experience'];
 
-    // Handle the profile photo upload
+    // Handle profile photo upload
     $profile_photo_path = ''; 
     if (isset($_FILES['profile_photo']) && $_FILES['profile_photo']['error'] == 0) {
         $target_dir = "uploads/"; 
@@ -69,13 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
-    // Validate salary input (ensure it's numeric)
+    // Validate salary input
     if (!is_numeric($salary) || strlen($salary) > 10) {
         die("Invalid salary value. Ensure it's a valid number and doesn't exceed the length.");
     }
 
-    // Call the AddData function to insert the data into the database
+    // Call the AddData function to insert data into the database
     AddData($connect, $user_id, $name, $phone, $email, $job_type, $qualifications, $location, $work_hours, $salary, $gender, $experience, $profile_photo_path);
 }
 ?>
-

@@ -9,12 +9,13 @@
 </head>
 <body>
 <!---------------------title bar----------------------------------------------------------------->
-     <section>
-        <div class="navbar">
-          <p class="logo" style="margin-top: 0px;">Care bond....</p>
-         
-   </div>
- </section>
+<section>
+  <div class="navbar">
+    <p class="logo" style="margin-top: 0px;">CareBond..</p>
+  
+  </div>
+</section>
+
 
  <!---------------------------------------------------------------------------------------------------------->
 <div class="container text-center" ;>
