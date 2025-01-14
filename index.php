@@ -112,7 +112,7 @@
                 
             <div class="text-center mt-5" style="z-index: 2; position: relative;">
             <h4 class="mb-3" style="color: #444;">Ready to find the perfect caregiver?</h4>
-            <a href="joinnow.php" class="btn btn-primary btn-lg">Get Started Now</a>
+            <a href="signup.php" class="btn btn-primary btn-lg">Get Started Now</a>
         </div>
     </div>
  </section>
