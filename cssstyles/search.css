@@ -2,6 +2,45 @@ body {
     background-color: #f8f9fa;
     padding-top: 50px;
 }
+.logo{
+    font-family: 'Niagara Engraved',cursive, sans-serif; 
+    font-size: 50px;
+    font-weight:bolder; 
+    color: hwb(0 4% 95%); 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    text-align: center;  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 30px;
+  font-size: 30px ;
+  background-color: white; 
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+}
+.navbar li {
+  margin-left: 8px; 
+}
+.navbar li a {
+  display: block;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #000; 
+  font-family: "Bodoni MT Condensed";
+  transition: color 0.3s ease, background-color 0.3s ease; 
+}
+.navbar li a:hover {
+  color: #5a5e5c; 
+}
 .form-container {
     max-width: 600px;
     margin: 0 auto;

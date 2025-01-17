@@ -32,11 +32,11 @@
         <h3 class="mb-3 highlight" style="top:230px; left: 40px; position: absolute;font-family:Bahnschrift Condensed ; ">Connecting families with,quality, local caregivers</h3>
         
         <!--------------------------------------------------Search Form one ---------------------------------------------------------------- -->
-            <p style="top:350px; left: 40px; position: absolute; max-width:400px; font-size:30px;font-family:Bauhaus 93 ;color:black;font-style: bold;">Choose the caregiver closest to you </p>
+           <!--<p style="top:350px; left: 40px; position: absolute; max-width:400px; font-size:30px;font-family:Bauhaus 93 ;color:black;font-style: bold;">Choose the caregiver closest to you </p>
             &nbsp;
             <input type="text" class="form-control" style="top:400px; left: 40px; position: absolute;max-width:280px;" placeholder="Location" >
             <button class="btn btn-secondary w-90" style="top:450px; left: 40px; position: absolute;">Search</button>
-
+-->
             <p style="top:500px; left: 40px; position: absolute; max-width:400px; font-size:30px;font-family:Bauhaus 93 ;color:rgb(8, 8, 8)">Become a good caregiver </p>
             &nbsp;
             <button class="btn btn-secondary w-90" style="top:550px; left: 40px; position: absolute; color: rgb(24, 236, 236);"><a href="joinnow.php">Register</a></button>
@@ -154,7 +154,7 @@
       <div class="col-md-6 d-flex align-items-center">
         <div class="row g-4 w-100">
         
-            <!-- Register -->
+            <!------------------------------ Register -------------------------------------->
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
@@ -167,7 +167,7 @@
                 </div>
             </div>
         
-            <!-- Search for Caregivers -->
+            <!----------------------- Search for Caregivers --------------------------------------->
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
@@ -180,7 +180,7 @@
                 </div>
             </div>
         
-            <!-- Schedule and Book -->
+            <!-------------------------------- Schedule and Book ------------------------------->
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
@@ -193,7 +193,7 @@
                 </div>
             </div>
         
-            <!-- Receive Quality Care -->
+            <!------------------------ Receive Quality Care -------------------------------->
             <div class="col-12">
                 <div class="d-flex align-items-center mb-3">
                     <div class="me-3">
@@ -213,7 +213,7 @@
   </div>
 </section>
 
-<!-- Slideshow Script -->
+<!------------------------------------- Slideshow Script ----------------------->
 <script>
   let slideIndex = 0;
   const slides = document.getElementsByClassName("mySlides");

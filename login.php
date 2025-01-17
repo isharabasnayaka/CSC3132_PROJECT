@@ -3,24 +3,23 @@
     session_start();
 
     if (isset($_POST['login'])) {
-        // Use consistent form field names (use 'mail' as per form)
-        $email = mysqli_real_escape_string($connect, $_POST['mail']); // Changed $_POST['email'] to $_POST['mail']
+    
+        $email = mysqli_real_escape_string($connect, $_POST['mail']); 
         $pswd = mysqli_real_escape_string($connect, $_POST['pswd']);
 
-        // Correct table name (ensure it matches your database table name)
-        $sql = "SELECT * FROM users WHERE email='{$email}'"; // Changed 'user' to 'users'
+        
+        $sql = "SELECT * FROM users WHERE email='{$email}'"; 
         $result_set = mysqli_query($connect, $sql);
 
         if ($result_set && mysqli_num_rows($result_set) == 1) {
             $row = mysqli_fetch_assoc($result_set);
 
-            // Ensure the column name is correct (use the actual column name for the password)
-            $hashedPassword = $row['password']; // Make sure 'password' is the correct column name in the database
+            $hashedPassword = $row['password']; 
 
             if (password_verify($pswd, $hashedPassword)) {
                 $_SESSION['user_id'] = $row['id'];
                 header("Location: joinnow.php");
-                exit(); // Added to stop further execution after redirect
+                exit(); 
             } else {
                 echo "Invalid password.";
             }

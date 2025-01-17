@@ -1,3 +1,28 @@
+<?php
+require_once 'dbconf.php';
+
+// Initialize the result variable to avoid undefined variable warnings
+$result = null;
+
+// Your existing query logic
+if (isset($_GET['location']) || isset($_GET['gender']) || isset($_GET['job_type']) || isset($_GET['work_hours'])) {
+    $location = $_GET['location'];
+    $gender = $_GET['gender'];
+    $job_type = $_GET['job_type'];
+    $work_hours = $_GET['work_hours'];
+
+    // Prepare your SQL query
+    $query = "SELECT name, location, profile_photo_path FROM find_job 
+              WHERE location = '$location' 
+                AND gender = '$gender' 
+                AND job_type = '$job_type' 
+                AND work_hours = '$work_hours'";
+
+    // Execute the query
+    $result = $connect->query($query);
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,21 +34,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="cssstyles/search.css">
 </head>
-<body>
 <body class="bg-light">
     <!-----------------title bar------------>
     <section>
-      <div class="navbar">
-          <p class="logo" style="margin-top: 0px;">Care bond....</p>
-      </div>
+        <div class="navbar">
+            <p class="logo" style="margin-top: 0px;">Care bond....</p>
+        </div>
     </section>
 
-<div class="container search-container">
-    <!-- Left Side: Filters -->
-    <div class="col-md-4">
-        <div class="filter-section">
-            <h4>Find a Caregiver</h4>
-            <form action="searchconn.php" method="GET">
+    <div class="container search-container">
+        <!-- Left Side: Filters -->
+        <div class="col-md-4">
+            <div class="filter-section">
+                <h4>Find a Caregiver</h4>
+                <form action="searchconn.php" method="GET">
             <div class="col-md-6">
               <label for="location" class="form-label">Location</label>
               <select id="location" name="location" class="form-select" required>
@@ -87,25 +111,38 @@
             </form>
         </div>
     </div>
+               
 
-    <!-- Right Side: Results -->
-    <div class="col-md-7 offset-md-1">
-        <div class="results-section">
-            
-           
-
-<?php
-    if (isset($_SESSION['user_id'])) {
-      $finder = $_SESSION['user_id'];
-      $sql = "SELECT * FROM find_job WHERE user_id=$finder"; 
-      $result = mysqli_query($connect, $sql);
-
-      if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);}}
-  ?>
+        <!-- Right Side: Results -->
+        <div class="col-md-7 offset-md-1">
+            <div class="results-section">
+                <h3 class="mb-4">Search Results</h3>
+                <div class="row">
+                    <?php if ($result && $result->num_rows > 0): ?>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100">
+                                    <img src="<?php echo htmlspecialchars($row['profile_photo_path']); ?>" class="card-img-top" alt="Profile Photo">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo htmlspecialchars($row['name']); ?></h5>
+                                        <p class="card-text">Location: <?php echo htmlspecialchars($row['location']); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <p class="text-muted">No results found. Try adjusting your filters.</p>
+                    <?php endif; ?>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<?php
+// Close the database connection
+$connect->close();
+?>

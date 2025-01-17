@@ -29,37 +29,36 @@ session_start();
   <?php
     if (isset($_SESSION['user_id'])) {
       $finder = $_SESSION['user_id'];
-      $sql = "SELECT * FROM find_job WHERE user_id=$finder";  // Use user_id instead of id
+      $sql = "SELECT * FROM find_job WHERE user_id=$finder"; 
       $result = mysqli_query($connect, $sql);
 
       if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
   ?>
   <div class="container my-4">
-    <!-- Profile Header -->
+    <!----------------- Profile Header ------------------------------>
     <div class="profile-header text-center">
       <img src="<?php echo htmlspecialchars($row['profile_photo_path']); ?>" alt="Caregiver Photo" class="profile-img">
       <h2 class="mt-3"><?php echo htmlspecialchars($row['name']); ?></h2>
-      <p>Experience: <?php echo htmlspecialchars($row['experience']); ?> | Location: <?php echo htmlspecialchars($row['location']); ?></p>
+      <p>Location: <?php echo htmlspecialchars($row['location']); ?></p>
       <button id="hiredButton" class="hired-btn hired" onclick="toggleHiredStatus()">Hired</button>
     </div>
-    <!-- Profile Details -->
+    <!-------------------- Profile Details ------------------------>
     <div class="row my-5">
       <div class="col-md-4">
         <h4>About Me</h4>
-        <p id="about-text"><?php echo htmlspecialchars($row['qualifications']); ?></p>
+        <p id="about-text">Gender: <?php echo htmlspecialchars($row['gender']); ?></p>
+        <p id="about-text">Job Type: <?php echo htmlspecialchars($row['job_type']); ?></p>
+        <p id="about-text">Experience: <?php echo htmlspecialchars($row['experience']); ?></p>
+        <p id="about-text">Working Hours: <?php echo htmlspecialchars($row['work_hours']); ?></p>
+        <p id="about-text">Salary: <?php echo htmlspecialchars($row['salary']); ?></p>
         <button class="btn btn-outline-secondary btn-sm mt-2" onclick="editAbout()">
           Edit About Me
         </button>
       </div>
       <div class="col-md-4">
         <h4>Qualifications</h4>
-        <ul class="list-group">
-          <li class="list-group-item">Medication Management</li>
-          <li class="list-group-item">Meal Preparation</li>
-          <li class="list-group-item">Physical Therapy Assistance</li>
-          <li class="list-group-item">Companionship</li>
-        </ul>
+        <p id="about-text"> <?php echo htmlspecialchars($row['qualifications']); ?></p>
       </div>
       <div class="col-md-4">
         <h4>Contact</h4>

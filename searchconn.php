@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['location'], $_GET['exper
     $availability = mysqli_real_escape_string($conn, $_GET['availability']);
 
     // Build the query
-    $query = "SELECT * FROM caregivers WHERE location LIKE '%$location%' ";
+    $query = "SELECT * FROM find_job ";
 
     if ($experience) {
         $query .= "AND experience >= $experience ";

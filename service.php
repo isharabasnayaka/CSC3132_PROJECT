@@ -24,7 +24,7 @@
 </section>
 
   <!-- Hero Section -->
-  <div class="title">
+  <div class="title" style="background-image: url('..images/homeimg/a.jpg');">
     <h1>Our Services</h1>
     <p class="lead">Discover how CareBond simplifies finding the perfect caregiver for your loved ones.</p>
   </div>
